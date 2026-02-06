@@ -16,7 +16,7 @@ class RegisterController extends Controller
         $validator = validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|min:8',
         ]);
         if($validator->fails()){
             return response()->json($validator->errors(), 422);
